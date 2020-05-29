@@ -11,7 +11,7 @@
             <p> [% lang('nutriscore_proteins_is_added_fat') %] </p>
           [% END %]
 
-          [% FOREACH group IN points %]
+          [% FOREACH group IN points_groups %]
             <p><strong> [% lang("nutriscore_" _ group.type _ "_points") %][% lang('sep') %]: [% group.points %]  </p></strong>
             <ul>
 
