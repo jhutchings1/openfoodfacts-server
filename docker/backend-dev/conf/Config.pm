@@ -557,6 +557,7 @@ $options{import_export_fields_groups} = [
 	} },
 
 );
+$options{product_type} = "food";
 
 # used to rename texts and to redirect to the new name
 $options{redirect_texts} = {
