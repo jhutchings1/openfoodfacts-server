@@ -8637,6 +8637,15 @@ sub display_nutriscore_calculation_details($) {
 
 	my $nutriscore_data_ref = shift;
 	
+	my $beverage_view;
+
+	if ($nutriscore_data_ref->{is_beverage}) {
+		$beverage_view = lang("nutriscore_is_beverage");
+	}
+	else {
+		$beverage_view = lang("nutriscore_is_not_beverage");
+	}
+
 	# Select message that explains the reason why the proteins points have been counted or not
 	
 	my $nutriscore_protein_info;
@@ -8663,7 +8672,7 @@ sub display_nutriscore_calculation_details($) {
 		
 		lang => \&lang,
 				
-		is_beverage => $nutriscore_data_ref->{is_beverage},
+		beverage_view => $beverage_view,
 		is_fat => $nutriscore_data_ref->{is_fat},
 		
 		nutriscore_protein_info => $nutriscore_protein_info,
@@ -8731,11 +8740,10 @@ sub display_nutriscore_calculation_details($) {
 	
 	my $html;
 
-	$tt->process('nutrition_score.tt', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	$tt->process('nutrition_score.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	
 	return $html;
-}
-
+} 
 
 sub display_nutrient_levels($) {
 
