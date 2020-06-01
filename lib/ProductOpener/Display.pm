@@ -8736,7 +8736,7 @@ sub display_nutriscore_calculation_details($) {
 	my $tt = Template->new($config);
 	
 	my $html;
-	$tt->process('nutrition_score.tt', $template_data_ref, \$html) || return "template error: " . $tt->error();
+	$tt->process('nutrition_score.html', $template_data_ref, \$html) || return "template error: " . $tt->error();
 	
 	return $html;
 } 
